@@ -73,8 +73,8 @@ begin
 						else
 							count := count + 1;
 						end if;
-			end case;
-		end if;
+				end case;
+			end if;
 	end process; 
 
   -- output depends solely on the current state
@@ -114,7 +114,11 @@ begin
 	process (s_toggle)
 	begin
 		if s_toggle'event = '1' then
-		bcd <= bcd - 1;
+			if bcd = "0000" then
+				bcd <= "0000"
+			else
+				bcd <= bcd - 1;
+			end if;
 		-- cast to unsigned done automatically?
 		end if;
 	end process;

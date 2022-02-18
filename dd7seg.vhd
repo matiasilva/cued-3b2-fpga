@@ -13,23 +13,23 @@ end dd7seg;
 
 architecture beh of dd7seg is
 begin
-	seg2 <= "0000001" WHEN (bcd = "0000") ELSE
-			"1001111" WHEN (bcd = "0001") ELSE 
-			"0010010" WHEN (bcd = "0010") ELSE 
-			"0000110" WHEN (bcd = "0011") ELSE 
-			"1001100" WHEN (bcd = "0100") ELSE 
-			"0100100" WHEN (bcd = "0101") ELSE 
-			"1100000" WHEN (bcd = "0110") ELSE 
-			"0001111" WHEN (bcd = "0111") ELSE 
-			"0000000" WHEN (bcd = "1000") ELSE 
-			"0001100" WHEN (bcd = "1001") ELSE
-			"0000001" WHEN (bcd = "1010") ELSE
-			"1001111" WHEN (bcd = "1011") ELSE
-			"0010010" WHEN (bcd = "1100") ELSE
-			"0000110" WHEN (bcd = "1101") ELSE
-			"0001100" WHEN (bcd = "1110") ELSE
-			"1001100" WHEN (bcd = "1111");
-	seg1 <= "1001111" WHEN ((bcd(3) AND (bcd(1) OR bcd(2))) = '1') ELSE
+	seg2 <= "0000001" when (bcd = "0000") else
+			"1001111" when (bcd = "0001") else 
+			"0010010" when (bcd = "0010") else 
+			"0000110" when (bcd = "0011") else 
+			"1001100" when (bcd = "0100") else 
+			"0100100" when (bcd = "0101") else 
+			"1100000" when (bcd = "0110") else 
+			"0001111" when (bcd = "0111") else 
+			"0000000" when (bcd = "1000") else 
+			"0001100" when (bcd = "1001") else
+			"0000001" when (bcd = "1010") else
+			"1001111" when (bcd = "1011") else
+			"0010010" when (bcd = "1100") else
+			"0000110" when (bcd = "1101") else
+			"0001100" when (bcd = "1110") else
+			"1001100" when (bcd = "1111");
+	seg1 <= "1001111" when ((bcd(3) and (bcd(1) or bcd(2))) = '1') else
 			"0000001";
 			-- simple logic function true for bcd > decimal 10
 end beh;
