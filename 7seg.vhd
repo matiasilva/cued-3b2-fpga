@@ -2,17 +2,19 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 -- implementation of a 7 seg display driver with 4-bit input
+
 entity bcd7seg is
 	port ( 
-			clk : in std_logic;
-			bcd	: in std_logic_vector(3 downto 0);
-			hex : out std_logic_vector(0 to 6)
+			clk : in std_logic; -- main clock (unused)
+			bcd	: in std_logic_vector(3 downto 0); -- bcd in
+			hex : out std_logic_vector(0 to 6) -- abcdefg out
 		);
 end bcd7seg;
 
 architecture beh of bcd7seg is
+    -- note purely combinational implementation
 begin
-	hex <= "0000001" when (bcd = "0000") else
+	hex <=  "0000001" when (bcd = "0000") else
 			"1001111" when (bcd = "0001") else 
 			"0010010" when (bcd = "0010") else 
 			"0000110" when (bcd = "0011") else 
