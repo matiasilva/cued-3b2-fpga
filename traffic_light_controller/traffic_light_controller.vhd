@@ -8,8 +8,8 @@ entity tlc is
 	  request : in std_logic;
 	  reset  : in std_logic;
 	  leds  : out  std_logic_vector(4 downto 0)
-	  seg1 : out std_logic_vector(0 to 6)
-	  seg2 : out std_logic_vector(0 to 6)
+	  hex0 : out std_logic_vector(0 to 6)
+	  hex1 : out std_logic_vector(0 to 6)
   ); 
 end tlc; 
 
@@ -27,14 +27,14 @@ architecture tlc_arch of tlc is
 		port(
 			clk : in std_logic;
 			bcd	: in std_logic_vector(3 downto 0);
-			seg1 : out std_logic_vector(0 to 6)
-			seg2 :  out std_logic_vector(0 to 6)
+			hex0 : out std_logic_vector(0 to 6)
+			hex1 :  out std_logic_vector(0 to 6)
 		);
 	end component;
 
 begin 
 	-- instantiate 7 seg driver
-	d1 : dd7seg port map(clk => s_toggle, bcd => bcd, seg1 => seg1, seg2 => seg2);
+	d1 : dd7seg port map(clk => s_toggle, bcd => bcd, hex0 => hex0, hex1 => hex1);
 	
 	-- logic to advance to the next state
 	process (clk, reset)
