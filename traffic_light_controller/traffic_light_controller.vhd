@@ -119,7 +119,6 @@ begin
 			else
 				bcd <= bcd - 1;
 			end if;
-		-- cast to unsigned done automatically?
 		end if;
 	end process;
 end tlc_arch; 
